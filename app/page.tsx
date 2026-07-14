@@ -324,6 +324,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section--reel" aria-labelledby="reel-title">
+        <div className="reel-copy" data-reveal>
+          <p className="eyebrow">Obra real / Em movimento</p>
+          <h2 id="reel-title">A engenharia sai do projeto e ganha escala.</h2>
+          <p>Veja a Hardsteel em campo. Estrutura, montagem e acabamento registrados por quem constrói cada etapa.</p>
+          <div className="reel-specs" aria-label="Características da publicação">
+            <span><small>Origem</small><b>@hardsteelbrasil</b></span>
+            <span><small>Formato</small><b>Reel vertical</b></span>
+          </div>
+          <a className="reel-link" href="https://www.instagram.com/reel/DawO1vPNNXV/" target="_blank" rel="noreferrer">Abrir no Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div className="reel-stage" data-reveal>
+          <div className="reel-stage__measure reel-stage__measure--top" aria-hidden="true">9:16 · REGISTRO DE OBRA</div>
+          <div className="reel-frame">
+            <iframe
+              src="https://www.instagram.com/reel/DawO1vPNNXV/embed/"
+              title="Reel da Hardsteel Brasil mostrando uma obra"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+          <div className="reel-stage__measure reel-stage__measure--side" aria-hidden="true">MÍDIA OFICIAL · 01</div>
+        </div>
+      </section>
+
       <section className="section section--proof">
         <p className="eyebrow" data-reveal>Controle mensurável</p>
         <div className="proof-grid">

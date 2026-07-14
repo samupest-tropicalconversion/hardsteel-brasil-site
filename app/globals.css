@@ -151,6 +151,26 @@ input[type="range"] { accent-color: var(--bronze); cursor: pointer; margin: 24px
 .model-row > button { background: transparent; border: 1px solid var(--hairline); cursor: pointer; height: 52px; transition: background .2s, color .2s; width: 52px; }
 .model-row:hover > button { background: var(--ink); color: var(--paper); }
 
+.section--reel { align-items: center; background: #101313; color: var(--plaster); display: grid; gap: clamp(60px, 11vw, 180px); grid-template-columns: .82fr 1.18fr; overflow: hidden; position: relative; }
+.section--reel::before { background-image: linear-gradient(rgba(126,139,146,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(126,139,146,.08) 1px, transparent 1px); background-size: 64px 64px; content: ""; inset: 0; mask-image: linear-gradient(90deg, black, transparent 72%); pointer-events: none; position: absolute; }
+.reel-copy { max-width: 600px; position: relative; z-index: 1; }
+.reel-copy h2 { font-size: clamp(44px, 5vw, 80px); font-weight: 500; letter-spacing: -.06em; line-height: .94; margin: 0; }
+.reel-copy > p:not(.eyebrow) { color: var(--steel); font-size: 14px; margin: 30px 0 42px; max-width: 460px; }
+.reel-specs { border-bottom: 1px solid rgba(237,233,225,.14); border-top: 1px solid rgba(237,233,225,.14); display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 32px; }
+.reel-specs span { padding: 16px 0; }
+.reel-specs span + span { border-left: 1px solid rgba(237,233,225,.14); padding-left: 24px; }
+.reel-specs small { color: var(--steel); display: block; font-family: var(--mono); font-size: 8px; letter-spacing: .08em; margin-bottom: 4px; text-transform: uppercase; }
+.reel-specs b { font-family: var(--display); font-size: 14px; font-weight: 500; }
+.reel-link { border-bottom: 1px solid var(--bronze-hi); color: var(--plaster); display: inline-flex; font-family: var(--mono); font-size: 10px; gap: 34px; letter-spacing: .08em; padding: 8px 0; text-transform: uppercase; }
+.reel-link:hover { color: var(--bronze-hi); }
+.reel-stage { justify-self: center; max-width: 470px; padding: 42px 62px 34px 34px; position: relative; width: 100%; }
+.reel-stage::before { border: 1px solid rgba(126,139,146,.22); content: ""; inset: 0 28px 0 0; position: absolute; }
+.reel-frame { aspect-ratio: 9 / 16; background: #080a0a; border: 1px solid rgba(237,233,225,.22); box-shadow: 28px 28px 80px rgba(0,0,0,.34); overflow: hidden; position: relative; }
+.reel-frame iframe { border: 0; height: 100%; width: 100%; }
+.reel-stage__measure { color: var(--steel); font-family: var(--mono); font-size: 8px; letter-spacing: .1em; position: absolute; text-transform: uppercase; }
+.reel-stage__measure--top { left: 34px; top: 17px; }
+.reel-stage__measure--side { right: 7px; top: 50%; transform: rotate(90deg) translateX(50%); transform-origin: right center; }
+
 .section--proof { background: var(--ink); color: var(--plaster); }
 .proof-grid { border-bottom: 1px solid rgba(237,233,225,.14); border-top: 1px solid rgba(237,233,225,.14); display: grid; grid-template-columns: repeat(3, 1fr); }
 .proof-grid > div { border-right: 1px solid rgba(237,233,225,.14); min-height: 300px; padding: 36px; }
@@ -201,6 +221,7 @@ input[type="range"] { accent-color: var(--bronze); cursor: pointer; margin: 24px
   .config-controls { border-bottom: 1px solid var(--hairline); border-right: 0; }
   .model-row { grid-template-columns: 44px 1fr 1fr 52px; }
   .model-row__meta { display: none; }
+  .section--reel { gap: 50px; grid-template-columns: .9fr 1.1fr; }
   .section--faq { gap: 5vw; }
 }
 
@@ -235,6 +256,10 @@ input[type="range"] { accent-color: var(--bronze); cursor: pointer; margin: 24px
   .model-row { grid-template-columns: 32px 1fr 44px; }
   .model-row__price { display: none; }
   .model-row > button { height: 44px; width: 44px; }
+  .section--reel { display: block; }
+  .reel-copy { margin-bottom: 70px; }
+  .reel-stage { max-width: 420px; padding-left: 20px; padding-right: 44px; }
+  .reel-stage::before { right: 14px; }
   .proof-grid { grid-template-columns: 1fr; }
   .proof-grid > div { border-bottom: 1px solid rgba(237,233,225,.14); border-right: 0; min-height: 230px; }
   .testimonials { grid-template-columns: 1fr; margin-top: 70px; padding-left: 0; }
