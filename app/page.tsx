@@ -28,7 +28,7 @@ const FINISHES: { id: FinishId; label: string; factor: number }[] = [
   { id: "assinatura", label: "Assinatura", factor: 1.62 },
 ];
 
-const HERO_STAGES = ["Fundação & deck", "Estrutura em A", "Cobertura", "Vedação de vidro", "Acabamento"];
+const HERO_STAGES = ["Fundação", "Estrutura em aço", "Cobertura", "Fechamentos", "Casa real pronta"];
 
 const money = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
@@ -85,8 +85,12 @@ export default function Home() {
       const context = gsap.context(() => {
         const groups = gsap.utils.toArray<SVGGElement>("[data-house-step]");
         const paths = gsap.utils.toArray<SVGGeometryElement>("[data-draw]");
+        const realHouse = document.querySelector<HTMLElement>("[data-real-house]");
+        const constructionSweep = document.querySelector<HTMLElement>("[data-construction-sweep]");
         gsap.set(groups, { opacity: 0 });
         gsap.set(paths, { strokeDasharray: 1, strokeDashoffset: 1 });
+        gsap.set(realHouse, { clipPath: "inset(100% 0 0 0)", opacity: 0, scale: 1.06 });
+        gsap.set(constructionSweep, { opacity: 0, yPercent: 0 });
 
         const timeline = gsap.timeline({
           defaults: { ease: "power2.out" },
@@ -119,7 +123,12 @@ export default function Home() {
           .to(paths.filter((path) => path.closest('[data-house-step="2"]')), { strokeDashoffset: 0, duration: 0.8, stagger: 0.08 }, "<")
           .to(groups[3], { opacity: 1, duration: 0.9 })
           .to(groups[4], { opacity: 1, duration: 0.8 })
-          .to(groups[5], { opacity: 1, duration: 0.6 });
+          .to(groups[5], { opacity: 1, duration: 0.6 })
+          .to(constructionSweep, { opacity: 1, duration: 0.15 })
+          .to(constructionSweep, { yPercent: -1650, duration: 1.8, ease: "power1.inOut" })
+          .to(realHouse, { clipPath: "inset(0% 0 0 0)", opacity: 1, scale: 1, duration: 1.8, ease: "power2.inOut" }, "<")
+          .to(groups, { opacity: 0.08, duration: 0.65 }, "<0.85")
+          .to(constructionSweep, { opacity: 0, duration: 0.25 }, "<");
 
         gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
           gsap.from(element, {
@@ -185,13 +194,25 @@ export default function Home() {
 
           <div className="hero__house-wrap">
             <AFrameHouse />
-            <span className="house-note house-note--one">VIGA 12.4 · AÇO G90</span>
-            <span className="house-note house-note--two">GABLE 7.80 M</span>
+            <figure className="hero__real-house" data-real-house>
+              <img
+                src="/hardsteel-casa-real.jpg"
+                alt="Casa A-frame real da Hardsteel Brasil com acabamento interno em madeira"
+                width="591"
+                height="1280"
+                decoding="async"
+                fetchPriority="high"
+              />
+              <figcaption>Obra real · Hardsteel Brasil</figcaption>
+            </figure>
+            <span className="hero__construction-sweep" data-construction-sweep aria-hidden="true" />
+            <span className="house-note house-note--one">PERFIL · AÇO G90</span>
+            <span className="house-note house-note--two">PROJETO → CASA REAL</span>
           </div>
 
           <div className="build-readout" aria-live="polite">
             <div className="build-readout__top">
-              <span ref={stageRef}>Fundação & deck</span>
+              <span ref={stageRef}>Fundação</span>
               <span ref={progressRef}>0%</span>
             </div>
             <div className="build-readout__track"><span ref={progressBarRef} /></div>
