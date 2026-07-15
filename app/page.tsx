@@ -339,13 +339,10 @@ export default function Home() {
         <div className="reel-stage" data-reveal>
           <div className="reel-stage__measure reel-stage__measure--top" aria-hidden="true">9:16 · REGISTRO DE OBRA</div>
           <div className="reel-frame">
-            <iframe
-              src="https://www.instagram.com/reel/DawO1vPNNXV/embed/"
-              title="Reel da Hardsteel Brasil mostrando uma obra"
-              loading="lazy"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              allowFullScreen
-            />
+            <video controls playsInline preload="metadata" aria-label="Vídeo da Hardsteel Brasil mostrando uma obra">
+              <source src="/hardsteel-obra.mp4" type="video/mp4" />
+              Seu navegador não oferece suporte à reprodução deste vídeo.
+            </video>
           </div>
           <div className="reel-stage__measure reel-stage__measure--side" aria-hidden="true">MÍDIA OFICIAL · 01</div>
         </div>
