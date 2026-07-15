@@ -39,15 +39,13 @@ button { color: inherit; }
 .hero__sticky { background: var(--ink); min-height: 100vh; overflow: hidden; position: relative; }
 .hero__sticky::after { background-image: linear-gradient(rgba(126,139,146,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(126,139,146,.08) 1px, transparent 1px); background-size: 64px 64px; content: ""; inset: 0; mask-image: linear-gradient(to bottom, black, transparent 90%); pointer-events: none; position: absolute; }
 .hero__atmosphere { background: radial-gradient(circle at 73% 47%, rgba(176,106,52,.20), transparent 20%), radial-gradient(circle at 75% 68%, rgba(201,134,82,.12), transparent 29%), linear-gradient(116deg, transparent 45%, rgba(126,139,146,.07)); inset: 0; position: absolute; }
-.hero__copy { isolation: isolate; left: 4.8vw; max-width: 690px; position: absolute; top: 17vh; z-index: 3; }
-.hero__copy::before { -webkit-backdrop-filter: blur(13px); backdrop-filter: blur(13px); background: rgba(8,10,10,.32); content: ""; inset: -54px -120px -52px -42px; -webkit-mask-image: radial-gradient(ellipse at 38% 50%, black 0%, black 48%, rgba(0,0,0,.72) 67%, transparent 90%); mask-image: radial-gradient(ellipse at 38% 50%, black 0%, black 48%, rgba(0,0,0,.72) 67%, transparent 90%); pointer-events: none; position: absolute; z-index: -1; }
-.hero__copy h1, .hero__copy .hero__lead, .hero__copy .hero__stats { text-shadow: 0 3px 26px rgba(0,0,0,.72); }
+.hero__copy { left: 4.8vw; max-width: 690px; position: absolute; top: 17vh; z-index: 3; }
 .eyebrow { color: var(--bronze-hi); font-family: var(--mono); font-size: 11px; letter-spacing: .12em; margin: 0 0 28px; text-transform: uppercase; }
 .eyebrow--dark { color: var(--bronze); }
 .hero h1, h2, h3 { font-family: var(--display); }
 .hero h1 { font-size: clamp(50px, 6.2vw, 104px); font-weight: 500; letter-spacing: -.065em; line-height: .92; margin: 0; max-width: 830px; }
 .hero h1 em { color: var(--bronze-hi); font-style: normal; }
-.hero__lead { color: rgba(237,233,225,.73); font-size: clamp(14px, 1.25vw, 18px); margin: 30px 0 34px; max-width: 530px; }
+.hero__lead { -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); background: rgba(8,10,10,.2); color: rgba(237,233,225,.86); font-size: clamp(14px, 1.25vw, 18px); margin: 30px 0 34px; max-width: 530px; padding: 9px 13px; text-shadow: 0 2px 16px rgba(0,0,0,.58); width: fit-content; }
 .button { align-items: center; border: 1px solid rgba(22,25,26,.26); display: inline-flex; font-family: var(--mono); font-size: 11px; gap: 24px; justify-content: space-between; letter-spacing: .08em; min-height: 58px; padding: 0 24px; text-transform: uppercase; transition: background .2s, color .2s, transform .2s; }
 .button:hover { transform: translateY(-2px); }
 .button--primary { background: var(--bronze); border-color: var(--bronze); color: var(--paper); }
@@ -240,7 +238,6 @@ input[type="range"] { accent-color: var(--bronze); cursor: pointer; margin: 24px
   .header-cta { font-size: 8px; }
   .wordmark { font-size: 11px; }
   .hero__copy { top: 13vh; }
-  .hero__copy::before { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); inset: -30px -24px -34px -24px; -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent); mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent); }
   .hero h1 { font-size: clamp(43px, 13vw, 62px); }
   .hero__lead { font-size: 13px; margin: 20px 0 24px; }
   .hero__stats { margin-top: 4vh; }
