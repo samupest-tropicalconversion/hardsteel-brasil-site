@@ -90,7 +90,7 @@ export default function Home() {
         gsap.set(groups, { opacity: 0 });
         gsap.set(paths, { strokeDasharray: 1, strokeDashoffset: 1 });
         gsap.set(realHouse, { clipPath: "inset(100% 0 0 0)", opacity: 0, scale: 1.06 });
-        gsap.set(constructionSweep, { opacity: 0, yPercent: 0 });
+        gsap.set(constructionSweep, { opacity: 0, y: 0 });
 
         const timeline = gsap.timeline({
           defaults: { ease: "power2.out" },
@@ -125,7 +125,7 @@ export default function Home() {
           .to(groups[4], { opacity: 1, duration: 0.8 })
           .to(groups[5], { opacity: 1, duration: 0.6 })
           .to(constructionSweep, { opacity: 1, duration: 0.15 })
-          .to(constructionSweep, { yPercent: -1650, duration: 1.8, ease: "power1.inOut" })
+          .to(constructionSweep, { y: () => -window.innerHeight, duration: 1.8, ease: "power1.inOut" })
           .to(realHouse, { clipPath: "inset(0% 0 0 0)", opacity: 1, scale: 1, duration: 1.8, ease: "power2.inOut" }, "<")
           .to(groups, { opacity: 0.08, duration: 0.65 }, "<0.85")
           .to(constructionSweep, { opacity: 0, duration: 0.25 }, "<");
